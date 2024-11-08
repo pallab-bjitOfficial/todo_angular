@@ -54,7 +54,7 @@ export class TodoComponent implements OnInit {
 
   deleteTodo(id: number): void {
     this.todoService.deleteTodo(id);
-    this.loadTodos(); // Reload todos after deletion
+    this.loadTodos();
   }
 
   toggleComplete(todo: ITodo): void {

@@ -2,8 +2,7 @@
   <h2 class="mb-10">Todo App</h2>
 
   <input type="text" [(ngModel)]="newTodoTitle" placeholder="New todo" (keyup.enter)="addTodo()" />
-  <app-button (click)="addTodo()" text="Add" type="add-todo__button"
-    [disabled]="!newTodoTitle.trim().length"></app-button>
+  <app-button (click)="addTodo()" text="Add" type="add-todo__button" [disabled]="!newTodoTitle.trim().length" />
 
 
   <ul>
@@ -12,8 +11,8 @@
       <input type="checkbox" [(ngModel)]="todo.completed" />
       <span [class.completed]="todo.completed">{{ todo.title }}</span>
       <div class="button_group">
-        <app-button (click)="editTodo(todo)" text="Edit" type="edit"></app-button>
-        <app-button (click)="deleteTodo(todo.id)" text="Delete" type="delete"></app-button>
+        <app-button (click)="editTodo(todo)" text="Edit" type="edit" />
+        <app-button (click)="deleteTodo(todo.id)" text="Delete" type="delete" />
       </div>
     </div>
     }@empty {
@@ -25,8 +24,8 @@
   <h3>Edit Todo</h3>
   <input type="text" [(ngModel)]="editingTodo.title" placeholder="Edit title" (keyup.enter)="updateTodo()" />
   <div class="button_group">
-    <app-button (click)="updateTodo()" text="Update" type="update"></app-button>
-    <app-button (click)="editingTodo = null" text="Cancel" type="cancel"></app-button>
+    <app-button (click)="updateTodo()" text="Update" type="update" />
+    <app-button (click)="editingTodo = null" text="Cancel" type="cancel" />
   </div>
   }
 </div>
