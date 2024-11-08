@@ -33,8 +33,8 @@ export class TodoComponent implements OnInit {
         title: this.newTodoTitle,
         completed: false,
       };
-      confirm('Are you sure you want to add this todo?') &&
-        this.todoService.addTodo(newTodo);
+
+      this.todoService.addTodo(newTodo);
       this.newTodoTitle = '';
       this.loadTodos();
     }
@@ -53,9 +53,8 @@ export class TodoComponent implements OnInit {
   }
 
   deleteTodo(id: number): void {
-    confirm('Are you sure you want to delete this todo?') &&
-      this.todoService.deleteTodo(id);
-    this.loadTodos();
+    this.todoService.deleteTodo(id);
+    this.loadTodos(); // Reload todos after deletion
   }
 
   toggleComplete(todo: ITodo): void {
