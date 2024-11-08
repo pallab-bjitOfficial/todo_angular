@@ -6,7 +6,7 @@ import { TodoComponent } from './components/todo/todo.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ReactiveFormsModule, TodoComponent],
+  imports: [ReactiveFormsModule, TodoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
