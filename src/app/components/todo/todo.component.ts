@@ -3,13 +3,13 @@ import { ITodo } from '../../model/todo.model';
 import { TodoService } from '../../services/todo.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ButtonComponent } from '../button/button.component';
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.scss'],
   standalone: true,
-
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, ButtonComponent],
 })
 export class TodoComponent implements OnInit {
   todos: ITodo[] = [];
