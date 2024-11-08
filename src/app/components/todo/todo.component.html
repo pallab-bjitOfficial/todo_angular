@@ -5,24 +5,28 @@
   <app-button (click)="addTodo()" text="Add" type="add-todo__button"
     [disabled]="!newTodoTitle.trim().length"></app-button>
 
+
   <ul>
-    <li *ngFor="let todo of todos">
+    @for (todo of todos; track todo.id) {
+    <div style="padding-top: 20px;display: flex;align-items: center;">
       <input type="checkbox" [(ngModel)]="todo.completed" />
       <span [class.completed]="todo.completed">{{ todo.title }}</span>
       <div class="button_group">
         <app-button (click)="editTodo(todo)" text="Edit" type="edit"></app-button>
         <app-button (click)="deleteTodo(todo.id)" text="Delete" type="delete"></app-button>
       </div>
-    </li>
+    </div>
+    }@empty {
+    <li>No todos found</li>
+    }
   </ul>
 
-  <div *ngIf="editingTodo">
-    <h3>Edit Todo</h3>
-    <input type="text" [(ngModel)]="editingTodo.title" placeholder="Edit title" (keyup.enter)="updateTodo()" />
-
-    <div class="button_group">
-      <app-button (click)="updateTodo()" text="Update" type="update"></app-button>
-      <app-button (click)="editingTodo = null" text="Cancel" type="cancel"></app-button>
-    </div>
+  @if (editingTodo) {
+  <h3>Edit Todo</h3>
+  <input type="text" [(ngModel)]="editingTodo.title" placeholder="Edit title" (keyup.enter)="updateTodo()" />
+  <div class="button_group">
+    <app-button (click)="updateTodo()" text="Update" type="update"></app-button>
+    <app-button (click)="editingTodo = null" text="Cancel" type="cancel"></app-button>
   </div>
+  }
 </div>

@@ -6,7 +6,7 @@ import { LocalStorageService } from './localstorage.service';
   providedIn: 'root',
 })
 export class TodoService {
-  private todosKey = 'todos';
+  private readonly todosKey = 'todos';
   localStorage = inject(LocalStorageService);
   constructor() {
     this.loadTodos();
